@@ -92,6 +92,6 @@ To get started with this project, follow these steps:
 
 ## Contributing
 
-Contributions are welcome. Please feel free to submit a pull request or open an issue to discuss potential changes.
+Contributions are welcomed. Please feel free to submit a pull request or open an issue to discuss potential changes.
 
 
