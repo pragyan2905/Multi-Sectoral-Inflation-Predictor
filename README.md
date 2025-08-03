@@ -1,9 +1,6 @@
 
 # Multi-sectoral Inflation Predictor 📈
 
-## Description
-
-This project provides a framework for predicting inflation rates across different economic sectors. It utilizes historical data and various economic indicators to generate forecasts for both overall (CPI) inflation and sector-specific inflation, such as food prices. The objective is to provide a quantitative tool for economic analysis and forecasting. 📊
 
 ## Features
 
@@ -97,6 +94,4 @@ To get started with this project, follow these steps:
 
 Contributions are welcome. Please feel free to submit a pull request or open an issue to discuss potential changes.
 
-## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
