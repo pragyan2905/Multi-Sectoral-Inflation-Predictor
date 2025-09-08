@@ -1,97 +1,272 @@
+# 🌐 Multi-Sectoral Inflation Predictor
 
-# Multi-sectoral Inflation Predictor 📈
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red)](https://streamlit.io/)
+[![XGBoost](https://img.shields.io/badge/XGBoost-1.7%2B-green)](https://xgboost.readthedocs.io/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## 📊 Overview
+
+The **Multi-Sectoral Inflation Predictor** is an advanced machine learning solution that forecasts inflation rates across different economic sectors. This project features two specialized prediction models and an interactive web application, providing accurate inflation forecasts for economic planning and analysis.
+
+### 🎯 Key Highlights
+- **Two Specialized Models**: Overall CPI inflation and food-specific inflation predictors
+- **High Accuracy**: Food model achieves 98.8% accuracy (R² = 0.9876)
+- **Interactive Dashboard**: Beautiful Streamlit web application with real-time predictions
+- **Data-Driven Insights**: Comprehensive visualizations and analytics
+- **Production Ready**: Optimized models with hyperparameter tuning via Optuna
 
 
-## Features
+### Quick Start
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/Multi-Sectoral-Inflation-Predictor.git
+cd Multi-Sectoral-Inflation-Predictor
 
-The project currently includes the following predictive models:
+# Install dependencies
+pip install -r requirements.txt
 
-1.  **Overall Inflation Predictor**: Forecasts the general Consumer Price Index (CPI) inflation rate.
-2.  **Food Inflation Predictor**: Forecasts the inflation rate for food products.
+# Run the app
+streamlit run app/app.py
+```
+
+
+
+## ✨ Features
+
+### 📈 Prediction Models
+
+#### 1. Overall Inflation Predictor
+- **Purpose**: Predicts Consumer Price Index (CPI) inflation rates
+- **Data Source**: World Bank economic indicators
+- **Algorithm**: XGBoost Regressor with Optuna optimization
+
+- **Features**: GDP, unemployment rate, public debt, interest rates, government finances
+
+#### 2. Food Inflation Predictor
+- **Purpose**: Specialized predictions for food price inflation
+- **Data Source**: WLD_RTFP real-time food price data
+- **Algorithm**: Time-series optimized XGBoost
+
+- **Features**: Lag variables, rolling averages, seasonal patterns
+
+### 🎨 Interactive Web Application
+
+The Streamlit application provides:
+
+- **🏠 Home Dashboard**: Project overview and model comparisons
+- **📊 Model Details**: In-depth exploration of each prediction model
+- **🔮 Live Predictions**: Interactive interface for real-time forecasting
+- **📈 Data Analytics**: Comprehensive visualizations and insights
+- **🌍 Global Trends**: Regional inflation pattern analysis
+
+## 🛠️ Installation
+
+### Prerequisites
+- Python 3.8 or higher
+- pip package manager
+- Virtual environment (recommended)
+
+### Step-by-Step Setup
+
+1. **Clone the Repository**
+```bash
+git clone https://github.com/yourusername/Multi-Sectoral-Inflation-Predictor.git
+cd Multi-Sectoral-Inflation-Predictor
+```
+
+2. **Create Virtual Environment**
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. **Install Dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+4. **Run the Application**
+```bash
+streamlit run app/app.py
+```
+
+## 📁 Project Structure
+
+```
+Multi-Sectoral-Inflation-Predictor/
+│
+├── app/
+│   ├── app.py                          # Main Streamlit application
+│   ├── utils.py                        # Utility functions and model classes
+│   ├── overall_inflation_predictor.py  # Overall inflation model
+│   └── food_price_inflation_predictor.ipynb  # Food inflation notebook
+│
+├── data/
+│   ├── world_bank_data_2025.csv       # Economic indicators data
+│   └── WLD_RTFP_country_2023-10-02.csv # Food price data
+│
+├── models/
+│   ├── overall_inflation_model.pkl     # Trained overall model
+│   └── food_inflation_model.pkl        # Trained food model
+│
+├── demos/
+│   ├── run_demo.py                     # Full demo script
+│   └── simple_demo.py                  # Quick demo script
+│
+├── docs/
+│   ├── README.md                       # Project documentation
+│   ├── QUICKSTART.md                   # Quick start guide
+│   └── STREAMLIT_README.md            # Streamlit app documentation
+│
+├── notebooks/
+│   ├── overall_inflation_predictor.ipynb
+│   └── food_price_inflation_predictor.ipynb
+│
+├── requirements.txt                    # Python dependencies
+└── README.md                          # This file
+```
+
+## 💻 Usage
+
+### Running the Web Application
+
+```bash
+streamlit run app/app.py
+```
+
+Navigate through the application tabs:
+1. **Home** - Overview and introduction
+2. **Overall Inflation Predictor** - Economic model details
+3. **Food Inflation Predictor** - Food price model information
+4. **Make Predictions** - Interactive prediction interface
+5. **Data Insights** - Analytics and visualizations
+
+### Making Predictions
+
+
+### Running Demo Scripts
+
+```bash
+# Quick demo without full model training
+python demos/simple_demo.py
+
+# Full demo with model training
+python demos/run_demo.py
+```
+
+## 📊 Model Performance
+
+### Overall Inflation Model
+| Metric | Value |
+|--------|-------|
+| R² Score | 0.7521 |
+| RMSE | 7.4563 |
+| Algorithm | XGBoost |
+| Features | 15 economic indicators |
+| Optimization | 150 Optuna trials |
+
+### Food Inflation Model
+| Metric | Value |
+|--------|-------|
+| R² Score | 0.9876 |
+| RMSE | 3.3386 |
+| MAE | 0.77 |
+| MSE | 11.15 |
+| Algorithm | XGBoost |
+| Features | 6 time-series features |
+
+## 🔧 Technologies Used
+
+### Machine Learning
+- **XGBoost**: Gradient boosting framework
+- **Scikit-learn**: ML utilities and preprocessing
+- **Optuna**: Hyperparameter optimization
+- **Pandas & NumPy**: Data manipulation
+
+### Visualization
+- **Streamlit**: Interactive web application
+- **Plotly**: Interactive charts
+- **Matplotlib & Seaborn**: Statistical visualizations
+
+### Data Sources
+- **World Bank**: Economic indicators
+- **WLD_RTFP**: Real-time food prices
+
+## 📈 Key Features Explained
+
+### Economic Indicators (Overall Model)
+- GDP and GDP per capita
+- Unemployment rate
+- Real interest rate
+- Public debt (% of GDP)
+- Government expense and revenue
+- Tax revenue
+- Gross national income
+
+### Time-Series Features (Food Model)
+- Lagged inflation (previous month)
+- 3-month rolling average
+- Monthly change rate
+- Seasonal indicators (month, quarter)
+
+## 🚀 Deployment
+
+### Local Deployment
+```bash
+streamlit run app/app.py --server.port 8501
+```
+
+### Cloud Deployment Options
+
+#### Streamlit Cloud
+1. Push to GitHub
+2. Connect to [Streamlit Cloud](https://streamlit.io/cloud)
+3. Deploy with one click
+
+
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+## 🔮 Future Enhancements
+
+- [ ] Additional sector models (energy, housing, healthcare)
+- [ ] Real-time data integration
+- [ ] API endpoints for programmatic access
+- [ ] Mobile application
+- [ ] Advanced forecasting with LSTM/Prophet
+- [ ] Multi-language support
+- [ ] User authentication and saved predictions
+
+
+
+
+
+
+
+## 🙏 Acknowledgments
+
+- World Bank for economic data
+- Streamlit team for the amazing framework
+- XGBoost developers for the powerful ML library
+- Open source community for continuous support
+
 
 ---
 
-### 1. Overall Inflation Predictor
+<div align="center">
+  
+**⭐ If you find this project useful, please consider giving it a star! ⭐**
 
-This model predicts the overall inflation rate using a set of economic indicators sourced from the World Bank.
+Made with ❤️ using Python, Streamlit, and XGBoost
 
-#### Data
-The model is trained on the `world_bank_data_2025.csv` dataset, which includes the following key features:
-* GDP (Current USD)
-* GDP per Capita (Current USD)
-* Unemployment Rate (%)
-* Real Interest Rate (%)
-* Public Debt (% of GDP)
-* Government Expense & Revenue (% of GDP)
-* Gross National Income (USD)
-
-#### Methodology
-The process involves the following stages:
-1.  **Data Preprocessing**: Cleaning the raw data by handling missing values via median imputation and standardizing column names.
-2.  **Exploratory Data Analysis (EDA)**: Using visualizations such as time-series plots, correlation heatmaps, and histograms to analyze relationships between economic indicators and inflation.
-3.  **Feature Engineering**: Generating new features, including the debt-to-GDP ratio and government balance, to serve as additional predictive inputs.
-4.  **Model Training**: Training and evaluating several regression models, including Linear Regression, Random Forest, and XGBoost.
-5.  **Hyperparameter Tuning**: Optimizing the XGBoost model's hyperparameters with Optuna to minimize the Root Mean Squared Error (RMSE).
-
-#### Results 🎯
-The final tuned XGBoost model achieved the following metrics on the test set:
-* **RMSE:** 7.4563
-* **R² Score:** 0.7521
-
----
-
-### 2. Food Inflation Predictor
-
-This model is designed to predict the inflation rate specifically for food products, likely using a combination of general economic indicators and food-specific data.
-
-#### Results 🎯
-The model's performance metrics on the test set are as follows:
-* **RMSE:** 3.3386
-* **MSE:** 11.1464
-* **MAE:** 0.7688
-* **R² Score:** 0.9876
-
----
-
-## Technologies Used 💻
-
-* **Python**
-* **Pandas**: For data manipulation and analysis.
-* **NumPy**: For numerical operations.
-* **Scikit-learn**: For building and evaluating machine learning models.
-* **XGBoost**: For implementing the gradient boosting model.
-* **Optuna**: For hyperparameter optimization.
-* **Matplotlib** & **Seaborn**: For data visualization.
-* **Jupyter Notebook**: For development and experimentation.
-
-## Installation and Usage
-
-To get started with this project, follow these steps:
-
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/your-username/multi-sectoral-inflation-predictor.git](https://github.com/your-username/multi-sectoral-inflation-predictor.git)
-    cd multi-sectoral-inflation-predictor
-    ```
-
-2.  **Run the prediction scripts:**
-    * To run the overall inflation predictor, execute the Python script:
-        ```bash
-        python overall_inflation_predictor.py
-        ```
-    * Alternatively, you can explore the analysis and models in the Jupyter Notebook:
-        ```bash
-        jupyter notebook overall_inflation_predictor.ipynb
-        ```
-
-## Future Work 🚀
-
-* Develop and integrate predictors for other sectors (e.g., energy, housing, healthcare).
-* Incorporate additional data sources, such as market sentiment data.
-* Deploy the models via a web application or API.
-
-## Contributing
-
-Contributions are welcomed. Please feel free to submit a pull request or open an issue to discuss potential changes.
-
-
+</div>
