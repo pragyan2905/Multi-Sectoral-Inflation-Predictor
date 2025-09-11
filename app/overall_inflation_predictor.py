@@ -202,7 +202,7 @@ print("-------------------------")
 print(f"RMSE     : {rmse_xgb:.4f}")
 print(f"R² Score : {r2_xgb:.4f}")
 
-!pip install optuna
+
 
 import optuna
 import warnings

@@ -6,7 +6,7 @@ This script demonstrates the functionality of both prediction models
 
 import pandas as pd
 import numpy as np
-from utils import OverallInflationPredictor, FoodInflationPredictor, load_sample_data
+from app.utils import OverallInflationPredictor, FoodInflationPredictor, load_sample_data
 
 def test_overall_inflation_model():
     """Test the overall inflation prediction model"""
